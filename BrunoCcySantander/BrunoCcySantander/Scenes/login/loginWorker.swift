@@ -12,9 +12,10 @@
 
 import UIKit
 
-class loginWorker
+class LoginWorker
 {
-  func doSomeWork()
+    func verifyLoginData(user: String, password: String)
   {
+    
   }
 }

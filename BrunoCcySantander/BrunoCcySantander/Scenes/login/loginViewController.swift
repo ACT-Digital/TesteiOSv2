@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol loginDisplayLogic: class
+protocol LoginDisplayLogic: class
 {
-  func displayLogin(viewModel: login.Something.ViewModel)
+  func displayLogin(viewModel: Login.Something.ViewModel)
 }
 
-class loginViewController: UIViewController, loginDisplayLogic
+class LoginViewController: UIViewController, LoginDisplayLogic
 {
-  var interactor: loginBusinessLogic?
-  var router: (NSObjectProtocol & loginRoutingLogic & loginDataPassing)?
+  var interactor: LoginBusinessLogic?
+  var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
 
   // MARK: Object lifecycle
   
@@ -41,8 +41,8 @@ class loginViewController: UIViewController, loginDisplayLogic
   private func setup()
   {
     let viewController = self
-    let interactor = loginInteractor()
-    let presenter = loginPresenter()
+    let interactor = LoginInteractor()
+    let presenter = LoginPresenter()
     let router = loginRouter()
     viewController.interactor = interactor
     viewController.router = router
@@ -83,11 +83,11 @@ class loginViewController: UIViewController, loginDisplayLogic
     
   func tryLogIn()
   {
-    let request = login.Something.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
+    let request = Login.Something.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
     interactor?.verifyLoginData(request: request)
   }
   
-  func displayLogin(viewModel: login.Something.ViewModel)
+  func displayLogin(viewModel: Login.Something.ViewModel)
   {
     if viewModel.allowed {
         performSegue(withIdentifier: "userSegue", sender: nil)

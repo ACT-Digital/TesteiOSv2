@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum login
+enum Login
 {
   // MARK: Use cases
   

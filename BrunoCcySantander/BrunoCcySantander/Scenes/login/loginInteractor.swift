@@ -12,30 +12,30 @@
 
 import UIKit
 
-protocol loginBusinessLogic
+protocol LoginBusinessLogic
 {
-  func verifyLoginData(request: login.Something.Request)
+  func verifyLoginData(request: Login.Something.Request)
 }
 
-protocol loginDataStore
+protocol LoginDataStore
 {
   //var name: String { get set }
 }
 
-class loginInteractor: loginBusinessLogic, loginDataStore
+class LoginInteractor: LoginBusinessLogic, LoginDataStore
 {
-  var presenter: loginPresentationLogic?
-  var worker: loginWorker?
+  var presenter: LoginPresentationLogic?
+  var worker: LoginWorker?
   //var name: String = ""
   
-  // MARK: Do something
+  // MARK: Verify Login Data
   
-  func verifyLoginData(request: login.Something.Request)
+  func verifyLoginData(request: Login.Something.Request)
   {
-    worker = loginWorker()
-    worker?.doSomeWork()
+    worker = LoginWorker()
+    worker?.verifyLoginData(user: request.user, password: request.password)
     
-    let response = login.Something.Response(allowed: false)
+    let response = Login.Something.Response(allowed: false)
     presenter?.presentSomething(response: response)
   }
 }
