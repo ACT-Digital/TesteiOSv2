@@ -116,8 +116,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="e9w-jx-zdd"/>
                     <connections>
-                        <outlet property="lbPassword" destination="i1T-aJ-3KZ" id="1if-mn-Wvg"/>
-                        <outlet property="lbUser" destination="pDY-US-gia" id="6HQ-AO-JWL"/>
+                        <outlet property="tfPassword" destination="i1T-aJ-3KZ" id="1if-mn-Wvg"/>
+                        <outlet property="tfUser" destination="pDY-US-gia" id="6HQ-AO-JWL"/>
                         <segue destination="P9a-ni-il8" kind="show" identifier="userSegue" id="nDd-no-789"/>
                     </connections>
                 </viewController>

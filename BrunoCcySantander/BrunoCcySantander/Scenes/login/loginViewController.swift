@@ -14,7 +14,7 @@ import UIKit
 
 protocol loginDisplayLogic: class
 {
-  func displaySomething(viewModel: login.Something.ViewModel)
+  func displayLogin(viewModel: login.Something.ViewModel)
 }
 
 class loginViewController: UIViewController, loginDisplayLogic
@@ -73,8 +73,8 @@ class loginViewController: UIViewController, loginDisplayLogic
   
   // MARK: Try to log in
   
-    @IBOutlet weak var lbUser: UITextField!
-    @IBOutlet weak var lbPassword: UITextField!
+    @IBOutlet weak var tfUser: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
     
     @IBAction func btLogin(_ sender: UIButton) {
         tryLogIn()
@@ -83,12 +83,23 @@ class loginViewController: UIViewController, loginDisplayLogic
     
   func tryLogIn()
   {
-    let request = login.Something.Request(user: lbUser.text ?? "", password: lbPassword.text ?? "")
+    let request = login.Something.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
     interactor?.verifyLoginData(request: request)
   }
   
-  func displaySomething(viewModel: login.Something.ViewModel)
+  func displayLogin(viewModel: login.Something.ViewModel)
   {
-    //nameTextField.text = viewModel.name
+    if viewModel.allowed {
+        performSegue(withIdentifier: "userSegue", sender: nil)
+    } else {
+        //Mark: - Alert
+        let alert = UIAlertController(title: "Incorrect user or password.", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+        tfUser.text = nil
+        tfPassword.text = nil
+    }
   }
 }

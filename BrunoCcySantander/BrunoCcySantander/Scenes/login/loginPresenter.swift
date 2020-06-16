@@ -26,6 +26,6 @@ class loginPresenter: loginPresentationLogic
   func presentSomething(response: login.Something.Response)
   {
     let viewModel = login.Something.ViewModel(allowed: false)
-    viewController?.displaySomething(viewModel: viewModel)
+    viewController?.displayLogin(viewModel: viewModel)
   }
 }
