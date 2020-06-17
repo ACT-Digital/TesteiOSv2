@@ -12,6 +12,7 @@
 
 import UIKit
 
+
 enum UserProfile
 {
   // MARK: Use cases
@@ -30,6 +31,7 @@ enum UserProfile
         var name: String
         var bankAgencyAccount: String
         var balance: String
+
     }
   }
   

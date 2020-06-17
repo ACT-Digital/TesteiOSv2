@@ -70,12 +70,39 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    registerTableViewCells()
     loadUserInfo()
+    fetchStatementInfo()
   }
+    
+  // MARK: Table view
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displayedStatements.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return configureItemCell(forRowAt: indexPath)
+        
+    }
+    
+    private func registerTableViewCells()
+    {
+      let statementCellNib = UINib(nibName: "StatementListCell", bundle: nil)
+      tableView.register(statementCellNib, forCellReuseIdentifier: "StatementListCell")
+    }
+    
+    private func configureItemCell(forRowAt indexPath: IndexPath) -> StatementTableViewCell
+    {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "StatementListCell", for: indexPath) as! StatementTableViewCell
+      cell.statement = displayedStatements[indexPath.row]
+      return cell
+    }
+    
   
-  // MARK: Do something
+  // MARK: Fetch objects
   
-  //@IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbAccount: UILabel!
     @IBOutlet weak var lbBalance: UILabel!
@@ -85,6 +112,8 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
     interactor?.logoutUser()
     navigationController?.popToRootViewController(animated: true)
   }
+    
+  var displayedStatements = [UserProfile.StatementListInfo.ViewModel.DisplayedStatement]()
     
   func loadUserInfo()
   {
@@ -99,7 +128,7 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
     lbBalance.text = viewModel.balance
   }
     
-  func loadStatementInfo()
+  func fetchStatementInfo()
   {
     let request = UserProfile.StatementListInfo.Request()
     interactor?.getStatementListInfo(request: request)
@@ -107,7 +136,8 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   
   func displayStatementListInfo(viewModel: UserProfile.StatementListInfo.ViewModel)
   {
-    //nameTextField.text = viewModel.name
+    displayedStatements = viewModel.displayedStatement
+    tableView.reloadData()
   }
     
 }
