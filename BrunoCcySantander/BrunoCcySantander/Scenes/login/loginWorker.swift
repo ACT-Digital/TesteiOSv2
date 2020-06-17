@@ -22,6 +22,7 @@ class LoginWorker
                 BankAPINetwork().fetchUser(user: user, password: password) { (userData, userStoreError) in
                     if userStoreError == nil {
                         completionHandler(userData)
+                        self.saveLogin(userID: user, password: password)
                     } else {
                         completionHandler (nil)
                     }
@@ -31,4 +32,13 @@ class LoginWorker
             completionHandler (nil)
         }
   }
+    
+    func saveLogin(userID: String, password: String) {
+        UserKeychainService().saveUserPassword(userID: userID, password: password)
+    }
+    
+    func loadLogin() -> (userID: String?, password: String?) {
+        let login = UserKeychainService().getUserPassword()
+        return login
+    }
 }

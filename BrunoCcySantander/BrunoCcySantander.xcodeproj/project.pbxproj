@@ -17,6 +17,8 @@
 		FD30CCFF249A408C005D96D7 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */; };
 		FD30CD03249A4DCF005D96D7 /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CD01249A4DCF005D96D7 /* StatementTableViewCell.swift */; };
 		FD30CD04249A4DCF005D96D7 /* StatementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD30CD02249A4DCF005D96D7 /* StatementTableViewCell.xib */; };
+		FD4B2C55249A7BCF00D9936F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4B2C54249A7BCF00D9936F /* Extensions.swift */; };
+		FD4B2C57249A7D4800D9936F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */; };
 		FD9863B2249974ED009576ED /* ValidationLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B1249974ED009576ED /* ValidationLoginData.swift */; };
 		FD9863C424997E42009576ED /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C324997E42009576ED /* UserData.swift */; };
 		FD9863C624997EB0009576ED /* StatementListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C524997EB0009576ED /* StatementListData.swift */; };
@@ -28,7 +30,6 @@
 		FD9FAA8A24994B2F00F1EEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9FAA8924994B2F00F1EEFC /* Assets.xcassets */; };
 		FD9FAA8D24994B2F00F1EEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9FAA8B24994B2F00F1EEFC /* LaunchScreen.storyboard */; };
 		FD9FAA9824994B2F00F1EEFC /* BrunoCcySantanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9FAA9724994B2F00F1EEFC /* BrunoCcySantanderTests.swift */; };
-		FDF687D5249963C200EB6DB4 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF687CF249963C200EB6DB4 /* LoginPresenter.swift */; };
 		FDF687D6249963C200EB6DB4 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF687D0249963C200EB6DB4 /* LoginWorker.swift */; };
 		FDF687D7249963C200EB6DB4 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF687D1249963C200EB6DB4 /* LoginRouter.swift */; };
 		FDF687D8249963C200EB6DB4 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF687D2249963C200EB6DB4 /* LoginModels.swift */; };
@@ -61,6 +62,8 @@
 		FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		FD30CD01249A4DCF005D96D7 /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		FD30CD02249A4DCF005D96D7 /* StatementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatementTableViewCell.xib; sourceTree = "<group>"; };
+		FD4B2C54249A7BCF00D9936F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FD9863B1249974ED009576ED /* ValidationLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLoginData.swift; sourceTree = "<group>"; };
 		FD9863C324997E42009576ED /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FD9863C524997EB0009576ED /* StatementListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementListData.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		FD9FAA9324994B2F00F1EEFC /* BrunoCcySantanderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrunoCcySantanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9FAA9724994B2F00F1EEFC /* BrunoCcySantanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrunoCcySantanderTests.swift; sourceTree = "<group>"; };
 		FD9FAA9924994B2F00F1EEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDF687CF249963C200EB6DB4 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FDF687D0249963C200EB6DB4 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		FDF687D1249963C200EB6DB4 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FDF687D2249963C200EB6DB4 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FD4B2C53249A7BAD00D9936F /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FD4B2C54249A7BCF00D9936F /* Extensions.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		FD9863B024997319009576ED /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 				FD9863C224997E2B009576ED /* Model */,
 				FD9863B024997319009576ED /* services */,
 				FDF687CE2499638900EB6DB4 /* Scenes */,
+				FD4B2C53249A7BAD00D9936F /* SupportFiles */,
 				FD9FAA8624994B2D00F1EEFC /* Main.storyboard */,
 				FD9FAA8924994B2F00F1EEFC /* Assets.xcassets */,
 				FD9FAA8B24994B2F00F1EEFC /* LaunchScreen.storyboard */,
@@ -223,7 +234,7 @@
 		FDF687DB249963C800EB6DB4 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				FDF687CF249963C200EB6DB4 /* LoginPresenter.swift */,
+				FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */,
 				FDF687D4249963C200EB6DB4 /* LoginInteractor.swift */,
 				FDF687D0249963C200EB6DB4 /* LoginWorker.swift */,
 				FDF687D3249963C200EB6DB4 /* LoginViewController.swift */,
@@ -408,13 +419,14 @@
 				FD30CD03249A4DCF005D96D7 /* StatementTableViewCell.swift in Sources */,
 				FD30CCFC249A408C005D96D7 /* UserProfileRouter.swift in Sources */,
 				FD30CCFF249A408C005D96D7 /* UserProfileInteractor.swift in Sources */,
-				FDF687D5249963C200EB6DB4 /* LoginPresenter.swift in Sources */,
 				FD9863C624997EB0009576ED /* StatementListData.swift in Sources */,
 				FDF687D9249963C200EB6DB4 /* LoginViewController.swift in Sources */,
 				FD30CCFE249A408C005D96D7 /* UserProfileViewController.swift in Sources */,
+				FD4B2C57249A7D4800D9936F /* LoginPresenter.swift in Sources */,
 				FDF687D8249963C200EB6DB4 /* LoginModels.swift in Sources */,
 				FD9FAA8124994B2D00F1EEFC /* AppDelegate.swift in Sources */,
 				FD30CCFB249A408C005D96D7 /* UserProfileWorker.swift in Sources */,
+				FD4B2C55249A7BCF00D9936F /* Extensions.swift in Sources */,
 				FD30CCFD249A408C005D96D7 /* UserProfileModels.swift in Sources */,
 				FD9863C8249987FB009576ED /* BankAPINetwork.swift in Sources */,
 				FD30CCFA249A408C005D96D7 /* UserProfilePresenter.swift in Sources */,

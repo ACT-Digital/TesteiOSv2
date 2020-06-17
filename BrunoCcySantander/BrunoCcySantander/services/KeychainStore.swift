@@ -29,7 +29,6 @@ class UserKeychainService: KeychainServiceProtocol {
     func getUserPassword() -> (userID: String?, password: String?) {
         let useID = try? keychain.get("userID")
         let password = try? keychain.get("password")
-        print("\(useID ?? "0") + \(password ?? "0")")
         return (useID, password)
     }
     

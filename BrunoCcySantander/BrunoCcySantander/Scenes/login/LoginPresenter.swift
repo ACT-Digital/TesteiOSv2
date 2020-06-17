@@ -14,7 +14,8 @@ import UIKit
 
 protocol LoginPresentationLogic
 {
-  func presentUserDisplay(response: Login.Something.Response)
+  func presentUserDisplay(response: Login.verify.Response)
+    func presentLogin(response: Login.savedLogin.Response)
 }
 
 class LoginPresenter: LoginPresentationLogic
@@ -23,9 +24,15 @@ class LoginPresenter: LoginPresentationLogic
   
   // MARK: Do something
   
-  func presentUserDisplay(response: Login.Something.Response)
+  func presentUserDisplay(response: Login.verify.Response)
   {
-    let viewModel = Login.Something.ViewModel(allowed: response.allowed)
+    let viewModel = Login.verify.ViewModel(allowed: response.allowed)
     viewController?.displayLogin(viewModel: viewModel)
   }
+    
+  func presentLogin(response: Login.savedLogin.Response) {
+    let viewModel = Login.savedLogin.ViewModel(userID: response.userID, password: response.password)
+    viewController?.displaySavedLogin(viewModel: viewModel)
+  }
+    
 }

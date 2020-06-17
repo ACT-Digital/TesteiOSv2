@@ -20,7 +20,7 @@ enum UserProfile
   enum UserInfo
   {
     struct Request {
-        
+        var userData: UserData
     }
     
     struct Response {

@@ -70,8 +70,8 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    registerTableViewCells()
     loadUserInfo()
+    registerTableViewCells()
     fetchStatementInfo()
   }
     
@@ -114,10 +114,11 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   }
     
   var displayedStatements = [UserProfile.StatementListInfo.ViewModel.DisplayedStatement]()
+  var displayedUserProfile: UserProfile.UserInfo.Request!
     
   func loadUserInfo()
   {
-    let request = UserProfile.UserInfo.Request()
+    let request = UserProfile.UserInfo.Request(userData: UserData(userAccount: UserAccount(userID: 1, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
     interactor?.getUserInfo(request: request)
   }
   

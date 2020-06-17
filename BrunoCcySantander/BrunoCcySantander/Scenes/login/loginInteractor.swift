@@ -14,7 +14,8 @@ import UIKit
 
 protocol LoginBusinessLogic
 {
-  func verifyLoginData(request: Login.Something.Request)
+  func verifyLoginData(request: Login.verify.Request)
+  func verifyLoginExistence()
 }
 
 protocol LoginDataStore
@@ -30,20 +31,27 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
   
   // MARK: Verify Login Data and fill userData if exist
   
-  func verifyLoginData(request: Login.Something.Request)
+  func verifyLoginData(request: Login.verify.Request)
   {
     worker = LoginWorker()
     worker?.fetchUserData(user: request.user, password: request.password) { data in
         var success: Bool = false
         
-        if let user = data {
-            self.userData = user
+        if let userdata = data {
+            self.userData = userdata
+            self.worker?.saveLogin(userID: request.user, password: request.password)
             success = true
         } else {
             success = false
         }
-        let response = Login.Something.Response(allowed: success)
+        let response = Login.verify.Response(allowed: success)
         self.presenter?.presentUserDisplay(response: response)
     }
   }
+    
+    func verifyLoginExistence() {
+        worker = LoginWorker()
+        let login = worker?.loadLogin()
+        presenter?.presentLogin(response: Login.savedLogin.Response(userID: login?.userID, password: login?.password))
+    }
 }

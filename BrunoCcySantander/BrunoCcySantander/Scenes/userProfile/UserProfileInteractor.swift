@@ -21,14 +21,14 @@ protocol UserProfileBusinessLogic
 
 protocol UserProfileDataStore
 {
-  //var name: String { get set }
+  var userData: UserData? { get set }
 }
 
 class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
 {
   var presenter: UserProfilePresentationLogic?
   var worker: UserProfileWorker?
-  //var name: String = ""
+  var userData: UserData?
   
   // MARK: Do something
   
@@ -37,8 +37,8 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
     worker = UserProfileWorker()
     worker?.doSomeWork()
     
-    let response = UserProfile.UserInfo.Response(userData: UserData(userAccount: UserAccount(userID: 10, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
-    presenter?.presentSomething(response: response)
+    let response = UserProfile.UserInfo.Response(userData: userData!)
+    presenter?.presentUserInfo(response: response)
   }
     
   func getStatementListInfo(request: UserProfile.StatementListInfo.Request)

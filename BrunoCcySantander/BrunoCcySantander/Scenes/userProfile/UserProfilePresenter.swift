@@ -14,7 +14,7 @@ import UIKit
 
 protocol UserProfilePresentationLogic
 {
-  func presentSomething(response: UserProfile.UserInfo.Response)
+  func presentUserInfo(response: UserProfile.UserInfo.Response)
 }
 
 class UserProfilePresenter: UserProfilePresentationLogic
@@ -23,9 +23,15 @@ class UserProfilePresenter: UserProfilePresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: UserProfile.UserInfo.Response)
+  func presentUserInfo(response: UserProfile.UserInfo.Response)
   {
-    let viewModel = UserProfile.UserInfo.ViewModel(name: "", bankAgencyAccount: "", balance: "")
+    let userAccount = response.userData.userAccount
+    let name = userAccount.name
+    let bankAgencyAccount = "\(userAccount.agency) / \(userAccount.bankAccount)"
+    let balance = userAccount.balance.toPrice()
+    
+    
+    let viewModel = UserProfile.UserInfo.ViewModel(name: name, bankAgencyAccount: bankAgencyAccount, balance: balance)
     viewController?.displayUserInfo(viewModel: viewModel)
   }
 }

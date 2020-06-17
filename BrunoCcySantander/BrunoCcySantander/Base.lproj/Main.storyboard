@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="BrunoCcySantander" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="BrunoCcySantander" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="azP-24-lRM"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -131,7 +131,7 @@
                         <outlet property="tfPassword" destination="i1T-aJ-3KZ" id="1if-mn-Wvg"/>
                         <outlet property="tfUser" destination="pDY-US-gia" id="6HQ-AO-JWL"/>
                         <outlet property="viLoading" destination="aOs-0G-Har" id="wWf-F0-QQY"/>
-                        <segue destination="P9a-ni-il8" kind="show" identifier="userSegue" id="nDd-no-789"/>
+                        <segue destination="P9a-ni-il8" kind="show" identifier="UserProfile" id="0Jy-Nl-apH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,7 +141,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="tNI-hK-d4C">
             <objects>
-                <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" customClass="UserProfileViewController" customModule="BrunoCcySantander" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserProfileViewController" id="P9a-ni-il8" customClass="UserProfileViewController" customModule="BrunoCcySantander" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vBN-4A-yBE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

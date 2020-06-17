@@ -16,7 +16,7 @@ enum Login
 {
   // MARK: Use cases
   
-  enum Something
+  enum verify
   {
     struct Request
     {
@@ -32,4 +32,22 @@ enum Login
         var allowed: Bool
     }
   }
+    enum savedLogin
+    {
+      struct Request
+      {
+      }
+      struct Response
+      {
+        var userID: String?
+        var password: String?
+      }
+      struct ViewModel
+      {
+        var userID: String?
+        var password: String?
+      }
+    }
+    
+
 }

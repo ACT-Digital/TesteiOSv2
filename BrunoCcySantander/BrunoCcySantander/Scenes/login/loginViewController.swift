@@ -14,7 +14,8 @@ import UIKit
 
 protocol LoginDisplayLogic: class
 {
-  func displayLogin(viewModel: Login.Something.ViewModel)
+  func displayLogin(viewModel: Login.verify.ViewModel)
+  func displaySavedLogin(viewModel: Login.savedLogin.ViewModel)
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic
@@ -43,7 +44,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     let viewController = self
     let interactor = LoginInteractor()
     let presenter = LoginPresenter()
-    let router = loginRouter()
+    let router = LoginRouter()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
@@ -69,6 +70,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    interactor?.verifyLoginExistence()
+    
   }
   
   // MARK: Try to log in
@@ -80,21 +83,26 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     @IBAction func btLogin(_ sender: UIButton) {
         tryLogIn()
     }
+    
+    func displaySavedLogin(viewModel: Login.savedLogin.ViewModel) {
+        tfUser.text = viewModel.userID
+        tfPassword.text = viewModel.password
+    }
 
     
   func tryLogIn()
   {
     viLoading.isHidden = false
-    let request = Login.Something.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
+    let request = Login.verify.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
     interactor?.verifyLoginData(request: request)
 
   }
   
-  func displayLogin(viewModel: Login.Something.ViewModel)
+  func displayLogin(viewModel: Login.verify.ViewModel)
   {
     viLoading.isHidden = true
     if viewModel.allowed {
-        performSegue(withIdentifier: "userSegue", sender: nil)
+        performSegue(withIdentifier: "UserProfile", sender: nil)
     } else {
         //Mark: - Alert
         let alert = UIAlertController(title: "Incorrect user or password.", message: nil, preferredStyle: .alert)
