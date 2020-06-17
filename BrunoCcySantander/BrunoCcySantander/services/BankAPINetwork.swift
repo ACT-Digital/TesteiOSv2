@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 protocol BankAPINetworkProtocol {
-    
+    func fetchUser(user: String, password: String, completionHandler: @escaping (UserData?, UserStoreError?) -> Void)
+    func fetchStatementList(userID: String, completionHandler: @escaping (StatementListData?, UserStoreError?) -> Void)
 }
 
 class BankAPINetwork: BankAPINetworkProtocol {

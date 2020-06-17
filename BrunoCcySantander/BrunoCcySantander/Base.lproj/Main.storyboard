@@ -210,16 +210,6 @@
                                 <constraint firstItem="6f8-iZ-W28" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="z75-kU-IHR"/>
                             </constraints>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="86" id="2uD-C3-8Mk">
-                                <rect key="frame" x="0.0" y="349" width="414" height="86"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2uD-C3-8Mk" id="mTa-md-mca">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="P9a-ni-il8" id="EQ2-Oc-l59"/>
                             <outlet property="delegate" destination="P9a-ni-il8" id="FPH-fh-6Pv"/>

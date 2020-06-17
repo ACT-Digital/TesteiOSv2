@@ -14,12 +14,19 @@ import UIKit
 
 class LoginWorker
 {
+    var localValitation: LocalInputsValidationProtocol?
+    var bankAPINetwork: BankAPINetworkProtocol?
+    var keychainservice: KeychainServiceProtocol?
+    
     func fetchUserData(user: String, password: String, completionHandler: @escaping (UserData?) -> Void)
   {
-        if LocalInputsValidation().isValidInputs(user: user, password: password) {
+        localValitation = localValitation ?? LocalInputsValidation()
+        bankAPINetwork = bankAPINetwork ?? BankAPINetwork()
+    
+        if localValitation!.isValidInputs(user: user, password: password) {
             
             DispatchQueue.main.async {
-                BankAPINetwork().fetchUser(user: user, password: password) { (userData, userStoreError) in
+                self.bankAPINetwork!.fetchUser(user: user, password: password) { (userData, userStoreError) in
                     if userStoreError == nil {
                         completionHandler(userData)
                         self.saveLogin(userID: user, password: password)
@@ -34,11 +41,13 @@ class LoginWorker
   }
     
     func saveLogin(userID: String, password: String) {
-        UserKeychainService().saveUserPassword(userID: userID, password: password)
+        keychainservice = keychainservice ?? UserKeychainService()
+        keychainservice!.saveUserPassword(userID: userID, password: password)
     }
     
     func loadLogin() -> (userID: String?, password: String?) {
-        let login = UserKeychainService().getUserPassword()
+        keychainservice = keychainservice ?? UserKeychainService()
+        let login = keychainservice!.getUserPassword()
         return login
     }
 }

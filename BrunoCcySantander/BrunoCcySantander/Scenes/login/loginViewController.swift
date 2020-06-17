@@ -108,7 +108,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         performSegue(withIdentifier: "UserProfile", sender: nil)
     } else {
         //Mark: - Alert
-        let alert = UIAlertController(title: "Incorrect user or password.", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Incorrect user/password or no conection.", message: nil, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
