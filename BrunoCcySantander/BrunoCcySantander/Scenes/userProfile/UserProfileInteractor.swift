@@ -34,20 +34,17 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
   
   func getUserInfo()
   {
-    worker = UserProfileWorker()
-    worker?.doSomeWork()
-    
     let response = UserProfile.UserInfo.Response(userData: userData!)
     presenter?.presentUserInfo(response: response)
   }
     
   func getStatementListInfo(request: UserProfile.StatementListInfo.Request)
   {
-//    worker = UserProfileWorker()
-//    worker?.doSomeWork()
-//    
-//    let response = UserProfile.UserInfo.Response(userData: UserData(userAccount: UserAccount(userID: 10, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
-//    presenter?.presentSomething(response: response)
+    worker = UserProfileWorker()
+    worker?.fetchStatementList(completionHandler: { (statementList) in
+        let response = UserProfile.StatementListInfo.Response(statementList: statementList)
+        self.presenter?.presentStatementList(response: response)
+    })
   }
     
     func logoutUser() {

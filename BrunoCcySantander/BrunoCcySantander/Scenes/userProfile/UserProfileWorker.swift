@@ -14,7 +14,14 @@ import UIKit
 
 class UserProfileWorker
 {
-  func doSomeWork()
+  func fetchStatementList(completionHandler: @escaping ([StatementList]) -> Void)
   {
+    let loginData = UserKeychainService().getUserPassword()
+    DispatchQueue.main.async {
+        BankAPINetwork().fetchStatementList(userID: loginData.userID ?? "") { (statementListData, userStoreError) in
+            let statementList: [StatementList] = statementListData!.statementList
+            completionHandler(statementList)
+        }
+    }
   }
 }

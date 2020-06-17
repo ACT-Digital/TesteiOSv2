@@ -89,13 +89,13 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
     
     private func registerTableViewCells()
     {
-      let statementCellNib = UINib(nibName: "StatementListCell", bundle: nil)
-      tableView.register(statementCellNib, forCellReuseIdentifier: "StatementListCell")
+      let statementCellNib = UINib(nibName: "StatementTableViewCell", bundle: nil)
+      tableView.register(statementCellNib, forCellReuseIdentifier: "StatementTableViewCell")
     }
     
     private func configureItemCell(forRowAt indexPath: IndexPath) -> StatementTableViewCell
     {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "StatementListCell", for: indexPath) as! StatementTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: "StatementTableViewCell", for: indexPath) as! StatementTableViewCell
       cell.statement = displayedStatements[indexPath.row]
       return cell
     }

@@ -15,6 +15,7 @@ import UIKit
 protocol UserProfilePresentationLogic
 {
   func presentUserInfo(response: UserProfile.UserInfo.Response)
+  func presentStatementList(response: UserProfile.StatementListInfo.Response)
 }
 
 class UserProfilePresenter: UserProfilePresentationLogic
@@ -30,8 +31,27 @@ class UserProfilePresenter: UserProfilePresentationLogic
     let bankAgencyAccount = "\(userAccount.agency) / \(userAccount.bankAccount)"
     let balance = userAccount.balance.toPrice()
     
-    
     let viewModel = UserProfile.UserInfo.ViewModel(name: name, bankAgencyAccount: bankAgencyAccount, balance: balance)
     viewController?.displayUserInfo(viewModel: viewModel)
   }
+    
+    func presentStatementList(response: UserProfile.StatementListInfo.Response) {
+        
+        var displayedStatementList: [UserProfile.StatementListInfo.ViewModel.DisplayedStatement] = []
+        
+        for statementList in response.statementList {
+            let title = statementList.title
+            let desc = statementList.desc
+            let date = statementList.date
+            let value = statementList.value.toPrice()
+            let displayedStatement = UserProfile.StatementListInfo.ViewModel.DisplayedStatement(title: title, desc: desc, date: date, value: value)
+            displayedStatementList.append(displayedStatement)
+        }
+        
+        let viewModel = UserProfile.StatementListInfo.ViewModel(displayedStatement: displayedStatementList)
+        
+        viewController?.displayStatementListInfo(viewModel: viewModel)
+        
+    }
+
 }

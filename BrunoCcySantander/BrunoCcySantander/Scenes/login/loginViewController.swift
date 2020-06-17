@@ -71,7 +71,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   {
     super.viewDidLoad()
     interactor?.verifyLoginExistence()
+  }
     
+  override func viewWillAppear(_ animated: Bool) {
+    interactor?.verifyLoginExistence()
   }
   
   // MARK: Try to log in
