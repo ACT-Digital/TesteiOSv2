@@ -14,7 +14,8 @@ import UIKit
 
 protocol UserProfileDisplayLogic: class
 {
-  func displaySomething(viewModel: UserProfile.UserInfo.ViewModel)
+  func displayUserInfo(viewModel: UserProfile.UserInfo.ViewModel)
+  func displayStatementListInfo(viewModel: UserProfile.StatementListInfo.ViewModel)
 }
 
 class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
@@ -69,21 +70,44 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    loadUserInfo()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
+    @IBOutlet weak var lbName: UILabel!
+    @IBOutlet weak var lbAccount: UILabel!
+    @IBOutlet weak var lbBalance: UILabel!
+    
+   
+  @IBAction func logout(_ sender: UIButton) {
+    interactor?.logoutUser()
+    navigationController?.popToRootViewController(animated: true)
+  }
+    
+  func loadUserInfo()
   {
     let request = UserProfile.UserInfo.Request()
-    interactor?.doSomething(request: request)
+    interactor?.getUserInfo(request: request)
   }
   
-  func displaySomething(viewModel: UserProfile.UserInfo.ViewModel)
+  func displayUserInfo(viewModel: UserProfile.UserInfo.ViewModel)
+  {
+    lbName.text = viewModel.name
+    lbAccount.text = viewModel.bankAgencyAccount
+    lbBalance.text = viewModel.balance
+  }
+    
+  func loadStatementInfo()
+  {
+    let request = UserProfile.StatementListInfo.Request()
+    interactor?.getStatementListInfo(request: request)
+  }
+  
+  func displayStatementListInfo(viewModel: UserProfile.StatementListInfo.ViewModel)
   {
     //nameTextField.text = viewModel.name
   }
+    
 }

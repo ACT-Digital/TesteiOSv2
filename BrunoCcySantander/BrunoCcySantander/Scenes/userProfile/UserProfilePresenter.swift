@@ -25,7 +25,7 @@ class UserProfilePresenter: UserProfilePresentationLogic
   
   func presentSomething(response: UserProfile.UserInfo.Response)
   {
-    let viewModel = UserProfile.UserInfo.ViewModel(name: "", bankAgency: "", account: "", balance: "")
-    viewController?.displaySomething(viewModel: viewModel)
+    let viewModel = UserProfile.UserInfo.ViewModel(name: "", bankAgencyAccount: "", balance: "")
+    viewController?.displayUserInfo(viewModel: viewModel)
   }
 }

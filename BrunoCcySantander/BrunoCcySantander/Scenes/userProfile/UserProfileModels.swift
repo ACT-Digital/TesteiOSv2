@@ -28,8 +28,7 @@ enum UserProfile
     
     struct ViewModel: Equatable {
         var name: String
-        var bankAgency: String
-        var account: String
+        var bankAgencyAccount: String
         var balance: String
     }
   }
@@ -37,7 +36,6 @@ enum UserProfile
   enum StatementListInfo
   {
     struct Request {
-        var userID: String
     }
     
     struct Response: Equatable
@@ -51,7 +49,7 @@ enum UserProfile
             var title: String
             var desc: String
             var date: String
-            var value: Double
+            var value: String
         }
         var displayedStatement: [DisplayedStatement]
     }
@@ -67,8 +65,7 @@ func ==(lhs: UserProfile.StatementListInfo.Response, rhs: UserProfile.StatementL
 func ==(lhs: UserProfile.UserInfo.ViewModel, rhs: UserProfile.UserInfo.ViewModel) -> Bool
 {
   return lhs.name == rhs.name
-    && lhs.bankAgency == rhs.bankAgency
-    && lhs.account == rhs.account
+    && lhs.bankAgencyAccount == rhs.bankAgencyAccount
     && lhs.balance == rhs.balance
 }
 

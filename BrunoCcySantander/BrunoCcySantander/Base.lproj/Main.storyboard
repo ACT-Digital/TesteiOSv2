@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1029" y="115"/>
         </scene>
-        <!--User-->
+        <!--User Profile View Controller-->
         <scene sceneID="tNI-hK-d4C">
             <objects>
-                <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" customClass="User" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" customClass="UserProfileViewController" customModule="BrunoCcySantander" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vBN-4A-yBE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,29 +180,33 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout 2" translatesAutoresizingMaskIntoConstraints="NO" id="rqO-py-yM6">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD0-UC-4tr">
                                     <rect key="frame" x="367" y="40" width="27" height="27"/>
-                                </imageView>
+                                    <state key="normal" image="logout 2"/>
+                                    <connections>
+                                        <action selector="logout:" destination="P9a-ni-il8" eventType="touchUpInside" id="oCb-Hv-0CV"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.26759803300000001" green="0.32198396330000001" blue="0.94265788790000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="rqO-py-yM6" secondAttribute="trailing" constant="20" id="3j2-WK-EVi"/>
                                 <constraint firstItem="uLX-Tj-GHU" firstAttribute="top" secondItem="LcI-a6-ra5" secondAttribute="bottom" constant="35" id="3o1-tB-yj5"/>
                                 <constraint firstItem="LcI-a6-ra5" firstAttribute="top" secondItem="Ejl-p5-lmT" secondAttribute="top" constant="40" id="73V-Su-ITw"/>
                                 <constraint firstItem="c2m-cr-gEn" firstAttribute="top" secondItem="uLX-Tj-GHU" secondAttribute="bottom" constant="10" id="8Ei-aB-kmw"/>
                                 <constraint firstItem="LcI-a6-ra5" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="BaZ-ue-LeH"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fea-ab-7WP" secondAttribute="trailing" constant="30" id="Bqj-Om-lUA"/>
                                 <constraint firstItem="uLX-Tj-GHU" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="KuI-jH-Q6W"/>
-                                <constraint firstItem="rqO-py-yM6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LcI-a6-ra5" secondAttribute="trailing" constant="10" id="O2I-aj-WKR"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uLX-Tj-GHU" secondAttribute="trailing" constant="30" id="Tbc-od-5lf"/>
                                 <constraint firstItem="Fea-ab-7WP" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="Zci-fR-ymH"/>
                                 <constraint firstItem="6f8-iZ-W28" firstAttribute="top" secondItem="Fea-ab-7WP" secondAttribute="bottom" constant="10" id="a9Y-Rn-wmq"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6f8-iZ-W28" secondAttribute="bottom" constant="20" id="i6n-hD-Dfc"/>
-                                <constraint firstItem="rqO-py-yM6" firstAttribute="top" secondItem="Ejl-p5-lmT" secondAttribute="top" constant="40" id="oHO-Jr-6T6"/>
+                                <constraint firstAttribute="trailing" secondItem="MD0-UC-4tr" secondAttribute="trailing" constant="20" id="kge-ms-PLJ"/>
                                 <constraint firstItem="Fea-ab-7WP" firstAttribute="top" secondItem="c2m-cr-gEn" secondAttribute="bottom" constant="35" id="p9g-DV-nbi"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6f8-iZ-W28" secondAttribute="trailing" constant="30" id="q84-aS-DqQ"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2m-cr-gEn" secondAttribute="trailing" constant="30" id="qPB-Is-prU"/>
+                                <constraint firstItem="MD0-UC-4tr" firstAttribute="top" secondItem="Ejl-p5-lmT" secondAttribute="top" constant="40" id="qac-6B-Jbf"/>
                                 <constraint firstItem="c2m-cr-gEn" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="ukh-Dv-Rep"/>
+                                <constraint firstItem="MD0-UC-4tr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LcI-a6-ra5" secondAttribute="trailing" constant="20" id="ykn-I1-euP"/>
                                 <constraint firstItem="6f8-iZ-W28" firstAttribute="leading" secondItem="Ejl-p5-lmT" secondAttribute="leading" constant="30" id="z75-kU-IHR"/>
                             </constraints>
                         </view>
@@ -222,6 +226,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="oaW-og-XSr"/>
+                    <connections>
+                        <outlet property="lbAccount" destination="c2m-cr-gEn" id="ofx-YS-vUq"/>
+                        <outlet property="lbBalance" destination="6f8-iZ-W28" id="Nfj-aL-btW"/>
+                        <outlet property="lbName" destination="LcI-a6-ra5" id="2cE-Kv-dSg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxh-fj-s0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

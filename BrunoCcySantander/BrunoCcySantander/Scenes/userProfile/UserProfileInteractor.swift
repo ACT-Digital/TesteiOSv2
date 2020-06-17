@@ -14,7 +14,9 @@ import UIKit
 
 protocol UserProfileBusinessLogic
 {
-  func doSomething(request: UserProfile.UserInfo.Request)
+  func getUserInfo(request: UserProfile.UserInfo.Request)
+  func getStatementListInfo(request: UserProfile.StatementListInfo.Request)
+  func logoutUser()
 }
 
 protocol UserProfileDataStore
@@ -30,7 +32,7 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
   
   // MARK: Do something
   
-  func doSomething(request: UserProfile.UserInfo.Request)
+  func getUserInfo(request: UserProfile.UserInfo.Request)
   {
     worker = UserProfileWorker()
     worker?.doSomeWork()
@@ -38,4 +40,18 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
     let response = UserProfile.UserInfo.Response(userData: UserData(userAccount: UserAccount(userID: 10, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
     presenter?.presentSomething(response: response)
   }
+    
+  func getStatementListInfo(request: UserProfile.StatementListInfo.Request)
+  {
+//    worker = UserProfileWorker()
+//    worker?.doSomeWork()
+//    
+//    let response = UserProfile.UserInfo.Response(userData: UserData(userAccount: UserAccount(userID: 10, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
+//    presenter?.presentSomething(response: response)
+  }
+    
+    func logoutUser() {
+        
+    }
+    
 }
