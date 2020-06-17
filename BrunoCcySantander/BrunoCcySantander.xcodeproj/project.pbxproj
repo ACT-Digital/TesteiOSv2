@@ -124,11 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				FD30CCF4249A408C005D96D7 /* UserProfilePresenter.swift */,
+				FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */,
 				FD30CCF5249A408C005D96D7 /* UserProfileWorker.swift */,
+				FD30CCF8249A408C005D96D7 /* UserProfileViewController.swift */,
 				FD30CCF6249A408C005D96D7 /* UserProfileRouter.swift */,
 				FD30CCF7249A408C005D96D7 /* UserProfileModels.swift */,
-				FD30CCF8249A408C005D96D7 /* UserProfileViewController.swift */,
-				FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */,
 			);
 			path = userProfile;
 			sourceTree = "<group>";

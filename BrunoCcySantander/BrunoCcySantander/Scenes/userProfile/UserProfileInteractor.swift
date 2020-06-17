@@ -14,7 +14,7 @@ import UIKit
 
 protocol UserProfileBusinessLogic
 {
-  func doSomething(request: UserProfile.Something.Request)
+  func doSomething(request: UserProfile.UserInfo.Request)
 }
 
 protocol UserProfileDataStore
@@ -30,12 +30,12 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
   
   // MARK: Do something
   
-  func doSomething(request: UserProfile.Something.Request)
+  func doSomething(request: UserProfile.UserInfo.Request)
   {
     worker = UserProfileWorker()
     worker?.doSomeWork()
     
-    let response = UserProfile.Something.Response()
+    let response = UserProfile.UserInfo.Response(userData: UserData(userAccount: UserAccount(userID: 10, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
     presenter?.presentSomething(response: response)
   }
 }

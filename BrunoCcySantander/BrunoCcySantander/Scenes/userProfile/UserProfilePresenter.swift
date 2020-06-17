@@ -14,7 +14,7 @@ import UIKit
 
 protocol UserProfilePresentationLogic
 {
-  func presentSomething(response: UserProfile.Something.Response)
+  func presentSomething(response: UserProfile.UserInfo.Response)
 }
 
 class UserProfilePresenter: UserProfilePresentationLogic
@@ -23,9 +23,9 @@ class UserProfilePresenter: UserProfilePresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: UserProfile.Something.Response)
+  func presentSomething(response: UserProfile.UserInfo.Response)
   {
-    let viewModel = UserProfile.Something.ViewModel()
+    let viewModel = UserProfile.UserInfo.ViewModel(name: "", bankAgency: "", account: "", balance: "")
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

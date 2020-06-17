@@ -16,16 +16,73 @@ enum UserProfile
 {
   // MARK: Use cases
   
-  enum Something
+  enum UserInfo
   {
-    struct Request
-    {
+    struct Request {
+        
     }
-    struct Response
-    {
+    
+    struct Response {
+        var userData: UserData
     }
-    struct ViewModel
-    {
+    
+    struct ViewModel: Equatable {
+        var name: String
+        var bankAgency: String
+        var account: String
+        var balance: String
     }
   }
+  
+  enum StatementListInfo
+  {
+    struct Request {
+        var userID: String
+    }
+    
+    struct Response: Equatable
+    {
+        var statementList: [StatementList]
+    }
+    
+    struct ViewModel: Equatable {
+        
+        struct DisplayedStatement: Equatable {
+            var title: String
+            var desc: String
+            var date: String
+            var value: Double
+        }
+        var displayedStatement: [DisplayedStatement]
+    }
+    
+  }
 }
+
+func ==(lhs: UserProfile.StatementListInfo.Response, rhs: UserProfile.StatementListInfo.Response) -> Bool
+{
+  return lhs.statementList == rhs.statementList
+}
+
+func ==(lhs: UserProfile.UserInfo.ViewModel, rhs: UserProfile.UserInfo.ViewModel) -> Bool
+{
+  return lhs.name == rhs.name
+    && lhs.bankAgency == rhs.bankAgency
+    && lhs.account == rhs.account
+    && lhs.balance == rhs.balance
+}
+
+func ==(lhs: UserProfile.StatementListInfo.ViewModel, rhs: UserProfile.StatementListInfo.ViewModel) -> Bool
+{
+    return lhs.displayedStatement == rhs.displayedStatement
+
+}
+
+func ==(lhs: UserProfile.StatementListInfo.ViewModel.DisplayedStatement, rhs: UserProfile.StatementListInfo.ViewModel.DisplayedStatement) -> Bool
+{
+  return lhs.title == rhs.title
+    && lhs.desc == rhs.desc
+    && lhs.date == rhs.date
+    && lhs.value == rhs.value
+}
+

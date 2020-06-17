@@ -14,7 +14,7 @@ import UIKit
 
 protocol UserProfileDisplayLogic: class
 {
-  func displaySomething(viewModel: UserProfile.Something.ViewModel)
+  func displaySomething(viewModel: UserProfile.UserInfo.ViewModel)
 }
 
 class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
@@ -78,11 +78,11 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
   
   func doSomething()
   {
-    let request = UserProfile.Something.Request()
+    let request = UserProfile.UserInfo.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: UserProfile.Something.ViewModel)
+  func displaySomething(viewModel: UserProfile.UserInfo.ViewModel)
   {
     //nameTextField.text = viewModel.name
   }
