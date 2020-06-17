@@ -18,7 +18,6 @@
 		FD30CD03249A4DCF005D96D7 /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CD01249A4DCF005D96D7 /* StatementTableViewCell.swift */; };
 		FD30CD04249A4DCF005D96D7 /* StatementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD30CD02249A4DCF005D96D7 /* StatementTableViewCell.xib */; };
 		FD4B2C55249A7BCF00D9936F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4B2C54249A7BCF00D9936F /* Extensions.swift */; };
-		FD4B2C57249A7D4800D9936F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */; };
 		FD9863B2249974ED009576ED /* ValidationLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B1249974ED009576ED /* ValidationLoginData.swift */; };
 		FD9863C424997E42009576ED /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C324997E42009576ED /* UserData.swift */; };
 		FD9863C624997EB0009576ED /* StatementListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C524997EB0009576ED /* StatementListData.swift */; };
@@ -63,7 +62,6 @@
 		FD30CD01249A4DCF005D96D7 /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		FD30CD02249A4DCF005D96D7 /* StatementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatementTableViewCell.xib; sourceTree = "<group>"; };
 		FD4B2C54249A7BCF00D9936F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FD9863B1249974ED009576ED /* ValidationLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLoginData.swift; sourceTree = "<group>"; };
 		FD9863C324997E42009576ED /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FD9863C524997EB0009576ED /* StatementListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementListData.swift; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 		FDF687DB249963C800EB6DB4 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				FD4B2C56249A7D4800D9936F /* LoginPresenter.swift */,
 				FDF687D4249963C200EB6DB4 /* LoginInteractor.swift */,
 				FDF687D0249963C200EB6DB4 /* LoginWorker.swift */,
 				FDF687D3249963C200EB6DB4 /* LoginViewController.swift */,
@@ -422,7 +419,6 @@
 				FD9863C624997EB0009576ED /* StatementListData.swift in Sources */,
 				FDF687D9249963C200EB6DB4 /* LoginViewController.swift in Sources */,
 				FD30CCFE249A408C005D96D7 /* UserProfileViewController.swift in Sources */,
-				FD4B2C57249A7D4800D9936F /* LoginPresenter.swift in Sources */,
 				FDF687D8249963C200EB6DB4 /* LoginModels.swift in Sources */,
 				FD9FAA8124994B2D00F1EEFC /* AppDelegate.swift in Sources */,
 				FD30CCFB249A408C005D96D7 /* UserProfileWorker.swift in Sources */,
