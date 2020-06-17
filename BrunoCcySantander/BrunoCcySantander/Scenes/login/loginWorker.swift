@@ -14,8 +14,21 @@ import UIKit
 
 class LoginWorker
 {
-    func verifyLoginData(user: String, password: String)
+    func fetchUserData(user: String, password: String, completionHandler: @escaping (UserData?) -> Void)
   {
-    
+        if LocalInputsValidation().isValidInputs(user: user, password: password) {
+            
+            DispatchQueue.main.async {
+                BankAPINetwork().fetchUser(user: user, password: password) { (userData, userStoreError) in
+                    if userStoreError == nil {
+                        completionHandler(userData)
+                    } else {
+                        completionHandler (nil)
+                    }
+                }
+            }
+        } else {
+            completionHandler (nil)
+        }
   }
 }

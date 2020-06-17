@@ -19,23 +19,31 @@ protocol LoginBusinessLogic
 
 protocol LoginDataStore
 {
-  //var name: String { get set }
+  var userData: UserData? { get }
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore
 {
   var presenter: LoginPresentationLogic?
   var worker: LoginWorker?
-  //var name: String = ""
+  var userData: UserData?
   
-  // MARK: Verify Login Data
+  // MARK: Verify Login Data and fill userData if exist
   
   func verifyLoginData(request: Login.Something.Request)
   {
     worker = LoginWorker()
-    worker?.verifyLoginData(user: request.user, password: request.password)
-    
-    let response = Login.Something.Response(allowed: false)
-    presenter?.presentSomething(response: response)
+    worker?.fetchUserData(user: request.user, password: request.password) { data in
+        var success: Bool = false
+        
+        if let user = data {
+            self.userData = user
+            success = true
+        } else {
+            success = false
+        }
+        let response = Login.Something.Response(allowed: success)
+        self.presenter?.presentUserDisplay(response: response)
+    }
   }
 }

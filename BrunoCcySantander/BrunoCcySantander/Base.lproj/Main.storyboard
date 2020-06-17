@@ -15,14 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="snK-hH-KSa">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="snK-hH-KSa">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-wc-MqG">
-                                        <rect key="frame" x="10" y="0.0" width="394" height="258"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="r7e-i3-qnY">
-                                                <rect key="frame" x="134.5" y="30" width="125" height="70"/>
+                                                <rect key="frame" x="144.5" y="30" width="125" height="70"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -96,20 +96,32 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Eem-FW-8lg" firstAttribute="leading" secondItem="snK-hH-KSa" secondAttribute="leading" id="AaF-cn-kde"/>
-                                    <constraint firstItem="Eem-FW-8lg" firstAttribute="top" secondItem="DFq-BY-gox" secondAttribute="bottom" id="Gio-8a-D2b"/>
                                     <constraint firstAttribute="trailing" secondItem="DFq-BY-gox" secondAttribute="trailing" id="HsT-vo-rGz"/>
-                                    <constraint firstItem="DFq-BY-gox" firstAttribute="top" secondItem="nkc-wc-MqG" secondAttribute="bottom" id="bb2-5G-lvX"/>
                                     <constraint firstItem="DFq-BY-gox" firstAttribute="leading" secondItem="snK-hH-KSa" secondAttribute="leading" id="esX-nw-9w1"/>
-                                    <constraint firstAttribute="trailing" secondItem="Eem-FW-8lg" secondAttribute="trailing" id="vCb-qW-orr"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-0G-Har">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-Ck-pId">
+                                        <rect key="frame" x="189" y="430" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34267715669014087" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.253356073943662" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="snK-hH-KSa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EpH-ZN-6Eo"/>
+                            <constraint firstAttribute="bottom" secondItem="aOs-0G-Har" secondAttribute="bottom" id="HH1-vm-VNh"/>
+                            <constraint firstItem="aOs-0G-Har" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KWB-KF-VVX"/>
+                            <constraint firstItem="aOs-0G-Har" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qny-Ya-BC2"/>
                             <constraint firstItem="snK-hH-KSa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bnY-Vn-IF5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="snK-hH-KSa" secondAttribute="trailing" id="dk9-ZK-HED"/>
+                            <constraint firstAttribute="trailing" secondItem="aOs-0G-Har" secondAttribute="trailing" id="epW-Cc-8nf"/>
                             <constraint firstItem="snK-hH-KSa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zAC-J2-hqv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -118,6 +130,7 @@
                     <connections>
                         <outlet property="tfPassword" destination="i1T-aJ-3KZ" id="1if-mn-Wvg"/>
                         <outlet property="tfUser" destination="pDY-US-gia" id="6HQ-AO-JWL"/>
+                        <outlet property="viLoading" destination="aOs-0G-Har" id="wWf-F0-QQY"/>
                         <segue destination="P9a-ni-il8" kind="show" identifier="userSegue" id="nDd-no-789"/>
                     </connections>
                 </viewController>
@@ -128,6 +141,7 @@
         <!--Table View Controller-->
         <scene sceneID="tNI-hK-d4C">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxh-fj-s0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vBN-4A-yBE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -210,7 +224,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="oaW-og-XSr"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rxh-fj-s0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="114.50892857142857"/>
         </scene>

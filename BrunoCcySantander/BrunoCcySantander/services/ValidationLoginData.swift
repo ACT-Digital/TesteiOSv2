@@ -14,6 +14,7 @@ protocol LocalInputsValidationProtocol {
 
 class LocalInputsValidation: LocalInputsValidationProtocol {
     
+    
     func isValidInputs(user: String?, password: String?) -> Bool {
         var result: Bool = false
         
@@ -23,12 +24,11 @@ class LocalInputsValidation: LocalInputsValidationProtocol {
             }
         }
         return result
-        
     }
     
     // MARK: - Validate Email Locally
     
-    func isValidEmail(user: String) -> Bool {
+    private func isValidEmail(user: String) -> Bool {
         let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let result = emailTest.evaluate(with: user)
@@ -37,7 +37,7 @@ class LocalInputsValidation: LocalInputsValidationProtocol {
     
     // MARK: - Validate CPF Locally
     
-    func isValidCpf(testStr: String) -> Bool {
+    private func isValidCpf(testStr: String) -> Bool {
         let CPFRegEx = "([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})"
         let CPFTest = NSPredicate(format: "SELF MATCHES %@", CPFRegEx)
         let result = CPFTest.evaluate(with: testStr)
@@ -46,7 +46,7 @@ class LocalInputsValidation: LocalInputsValidationProtocol {
     
     // MARK: - Validate Password Locally
     
-    func isValidPassword(password: String) -> Bool {
+    private func isValidPassword(password: String) -> Bool {
         let passwordRegEx = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         let result = passwordTest.evaluate(with: password)

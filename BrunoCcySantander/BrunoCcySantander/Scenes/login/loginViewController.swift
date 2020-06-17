@@ -73,6 +73,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   
   // MARK: Try to log in
   
+    @IBOutlet weak var viLoading: UIView!
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     
@@ -83,12 +84,15 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     
   func tryLogIn()
   {
+    viLoading.isHidden = false
     let request = Login.Something.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
     interactor?.verifyLoginData(request: request)
+
   }
   
   func displayLogin(viewModel: Login.Something.ViewModel)
   {
+    viLoading.isHidden = true
     if viewModel.allowed {
         performSegue(withIdentifier: "userSegue", sender: nil)
     } else {
