@@ -14,7 +14,7 @@ import UIKit
 
 protocol UserProfileBusinessLogic
 {
-  func getUserInfo(request: UserProfile.UserInfo.Request)
+  func getUserInfo()
   func getStatementListInfo(request: UserProfile.StatementListInfo.Request)
   func logoutUser()
 }
@@ -32,7 +32,7 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
   
   // MARK: Do something
   
-  func getUserInfo(request: UserProfile.UserInfo.Request)
+  func getUserInfo()
   {
     worker = UserProfileWorker()
     worker?.doSomeWork()
@@ -51,7 +51,7 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
   }
     
     func logoutUser() {
-        
+        UserKeychainService().removeUserPassword()
     }
     
 }

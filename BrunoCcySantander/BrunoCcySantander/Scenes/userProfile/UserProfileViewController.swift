@@ -118,8 +118,7 @@ class UserProfileViewController: UITableViewController, UserProfileDisplayLogic
     
   func loadUserInfo()
   {
-    let request = UserProfile.UserInfo.Request(userData: UserData(userAccount: UserAccount(userID: 1, name: "", bankAccount: "", agency: "", balance: 1.0), error: ErrorUserAPI()))
-    interactor?.getUserInfo(request: request)
+    interactor?.getUserInfo()
   }
   
   func displayUserInfo(viewModel: UserProfile.UserInfo.ViewModel)

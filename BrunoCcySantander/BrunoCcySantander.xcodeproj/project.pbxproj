@@ -234,12 +234,12 @@
 		FDF687DB249963C800EB6DB4 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				FD4B2C58249A81B100D9936F /* LoginPresenter.swift */,
 				FDF687D4249963C200EB6DB4 /* LoginInteractor.swift */,
 				FDF687D0249963C200EB6DB4 /* LoginWorker.swift */,
 				FDF687D3249963C200EB6DB4 /* LoginViewController.swift */,
 				FDF687D1249963C200EB6DB4 /* LoginRouter.swift */,
 				FDF687D2249963C200EB6DB4 /* LoginModels.swift */,
-				FD4B2C58249A81B100D9936F /* LoginPresenter.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
