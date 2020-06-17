@@ -27,7 +27,7 @@ protocol UserProfileDataStore
 class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
 {
   var presenter: UserProfilePresentationLogic?
-  var worker: UserProfileWorker?
+  var worker: UserProfileWorkerProtocol?
   var userData: UserData?
   
   // MARK: Do something
@@ -40,7 +40,7 @@ class UserProfileInteractor: UserProfileBusinessLogic, UserProfileDataStore
     
   func getStatementListInfo(request: UserProfile.StatementListInfo.Request)
   {
-    worker = UserProfileWorker()
+    worker = worker ?? UserProfileWorker()
     worker?.fetchStatementList(completionHandler: { (statementList) in
         let response = UserProfile.StatementListInfo.Response(statementList: statementList)
         self.presenter?.presentStatementList(response: response)

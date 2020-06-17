@@ -12,13 +12,21 @@
 
 import UIKit
 
-class UserProfileWorker
+protocol UserProfileWorkerProtocol {
+    func fetchStatementList(completionHandler: @escaping ([StatementList]) -> Void)
+}
+
+class UserProfileWorker: UserProfileWorkerProtocol
 {
+  var bankAPINetwork: BankAPINetworkProtocol?
+    
   func fetchStatementList(completionHandler: @escaping ([StatementList]) -> Void)
   {
+    bankAPINetwork = bankAPINetwork ?? BankAPINetwork()
+    
     let loginData = UserKeychainService().getUserPassword()
     DispatchQueue.main.async {
-        BankAPINetwork().fetchStatementList(userID: loginData.userID ?? "") { (statementListData, userStoreError) in
+        self.bankAPINetwork!.fetchStatementList(userID: loginData.userID ?? "") { (statementListData, userStoreError) in
             let statementList: [StatementList] = statementListData!.statementList
             completionHandler(statementList)
         }
