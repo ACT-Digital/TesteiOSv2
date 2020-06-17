@@ -12,42 +12,38 @@
 
 import UIKit
 
-protocol LoginBusinessLogic
-{
-  func verifyLoginData(request: Login.verify.Request)
-  func verifyLoginExistence()
+protocol LoginBusinessLogic {
+    func verifyLoginData(request: Login.verify.Request)
+    func verifyLoginExistence()
 }
 
-protocol LoginDataStore
-{
-  var userData: UserData? { get }
+protocol LoginDataStore {
+    var userData: UserData? { get }
 }
 
-class LoginInteractor: LoginBusinessLogic, LoginDataStore
-{
-  var presenter: LoginPresentationLogic?
-  var worker: LoginWorker?
-  var userData: UserData?
+class LoginInteractor: LoginBusinessLogic, LoginDataStore {
+    var presenter: LoginPresentationLogic?
+    var worker: LoginWorker?
+    var userData: UserData?
   
   // MARK: Verify Login Data and fill userData if exist
   
-  func verifyLoginData(request: Login.verify.Request)
-  {
-    worker = LoginWorker()
-    worker?.fetchUserData(user: request.user, password: request.password) { data in
-        var success: Bool = false
-        
-        if let userdata = data {
-            self.userData = userdata
-            self.worker?.saveLogin(userID: request.user, password: request.password)
-            success = true
-        } else {
-            success = false
+    func verifyLoginData(request: Login.verify.Request) {
+        worker = LoginWorker()
+        worker?.fetchUserData(user: request.user, password: request.password) { data in
+            var success: Bool = false
+            
+            if let userdata = data {
+                self.userData = userdata
+                self.worker?.saveLogin(userID: request.user, password: request.password)
+                success = true
+            } else {
+                success = false
+            }
+            let response = Login.verify.Response(allowed: success)
+            self.presenter?.presentUserDisplay(response: response)
         }
-        let response = Login.verify.Response(allowed: success)
-        self.presenter?.presentUserDisplay(response: response)
     }
-  }
     
     func verifyLoginExistence() {
         worker = LoginWorker()

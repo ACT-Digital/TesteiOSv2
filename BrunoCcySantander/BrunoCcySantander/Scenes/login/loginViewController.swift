@@ -12,70 +12,64 @@
 
 import UIKit
 
-protocol LoginDisplayLogic: class
-{
-  func displayLogin(viewModel: Login.verify.ViewModel)
-  func displaySavedLogin(viewModel: Login.savedLogin.ViewModel)
-}
+    protocol LoginDisplayLogic: class {
+      func displayLogin(viewModel: Login.verify.ViewModel)
+      func displaySavedLogin(viewModel: Login.savedLogin.ViewModel)
+    }
 
-class LoginViewController: UIViewController, LoginDisplayLogic
-{
-  var interactor: LoginBusinessLogic?
-  var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
+    class LoginViewController: UIViewController, LoginDisplayLogic {
+      var interactor: LoginBusinessLogic?
+      var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
 
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
   
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
   
   // MARK: Setup
   
-  private func setup()
-  {
-    let viewController = self
-    let interactor = LoginInteractor()
-    let presenter = LoginPresenter()
-    let router = LoginRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
+    private func setup() {
+        
+        let viewController = self
+        let interactor = LoginInteractor()
+        let presenter = LoginPresenter()
+        let router = LoginRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+          let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+          if let router = router, router.responds(to: selector) {
+            router.perform(selector, with: segue)
+          }
+        }
     }
-  }
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    interactor?.verifyLoginExistence()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        interactor?.verifyLoginExistence()
+    }
     
-  override func viewWillAppear(_ animated: Bool) {
-    interactor?.verifyLoginExistence()
-  }
+    override func viewWillAppear(_ animated: Bool) {
+        interactor?.verifyLoginExistence()
+    }
   
   // MARK: Try to log in
   
@@ -93,28 +87,25 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     }
 
     
-  func tryLogIn()
-  {
-    viLoading.isHidden = false
-    let request = Login.verify.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
-    interactor?.verifyLoginData(request: request)
-
-  }
-  
-  func displayLogin(viewModel: Login.verify.ViewModel)
-  {
-    viLoading.isHidden = true
-    if viewModel.allowed {
-        performSegue(withIdentifier: "UserProfile", sender: nil)
-    } else {
-        //Mark: - Alert
-        let alert = UIAlertController(title: "Incorrect user/password or no conection.", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-        
-        tfUser.text = nil
-        tfPassword.text = nil
+    func tryLogIn() {
+        viLoading.isHidden = false
+        let request = Login.verify.Request(user: tfUser.text ?? "", password: tfPassword.text ?? "")
+        interactor?.verifyLoginData(request: request)
     }
-  }
+  
+    func displayLogin(viewModel: Login.verify.ViewModel) {
+        viLoading.isHidden = true
+        if viewModel.allowed {
+            performSegue(withIdentifier: "UserProfile", sender: nil)
+        } else {
+            //Mark: - Alert
+            let alert = UIAlertController(title: "Incorrect user/password or no conection.", message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
+            tfUser.text = nil
+            tfPassword.text = nil
+        }
+    }
 }

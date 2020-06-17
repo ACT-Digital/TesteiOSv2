@@ -12,49 +12,43 @@
 
 import UIKit
 
-@objc protocol LoginRoutingLogic
-{
-  func routeToUserProfile(segue: UIStoryboardSegue?)
+@objc protocol LoginRoutingLogic {
+    func routeToUserProfile(segue: UIStoryboardSegue?)
 }
 
-protocol LoginDataPassing
-{
-  var dataStore: LoginDataStore? { get }
+protocol LoginDataPassing {
+    var dataStore: LoginDataStore? { get }
 }
 
-class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
-{
-  weak var viewController: LoginViewController?
-  var dataStore: LoginDataStore?
+class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
+    weak var viewController: LoginViewController?
+    var dataStore: LoginDataStore?
   
   // MARK: Routing
   
-  func routeToUserProfile(segue: UIStoryboardSegue?)
-  {
-    if let segue = segue {
-      let destinationVC = segue.destination as! UserProfileViewController
-      var destinationDS = destinationVC.router!.dataStore!
-      passDataToUserProfile(source: dataStore!, destination: &destinationDS)
-    } else {
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! UserProfileViewController
-      var destinationDS = destinationVC.router!.dataStore!
-      passDataToUserProfile(source: dataStore!, destination: &destinationDS)
-      navigateToUserProfile(source: viewController!, destination: destinationVC)
+    func routeToUserProfile(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+          let destinationVC = segue.destination as! UserProfileViewController
+          var destinationDS = destinationVC.router!.dataStore!
+          passDataToUserProfile(source: dataStore!, destination: &destinationDS)
+        } else {
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! UserProfileViewController
+          var destinationDS = destinationVC.router!.dataStore!
+          passDataToUserProfile(source: dataStore!, destination: &destinationDS)
+          navigateToUserProfile(source: viewController!, destination: destinationVC)
+        }
     }
-  }
 
   // MARK: Navigation
   
-  func navigateToUserProfile(source: LoginViewController, destination: UserProfileViewController)
-  {
-    source.show(destination, sender: nil)
-  }
+    func navigateToUserProfile(source: LoginViewController, destination: UserProfileViewController) {
+        source.show(destination, sender: nil)
+    }
   
   // MARK: Passing data
   
-  func passDataToUserProfile(source: LoginDataStore, destination: inout UserProfileDataStore)
-  {
-    destination.userData = source.userData
-  }
+    func passDataToUserProfile(source: LoginDataStore, destination: inout UserProfileDataStore) {
+        destination.userData = source.userData
+    }
 }

@@ -83,7 +83,7 @@ class LoginViewControllerTests: XCTestCase
     XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
   }
   
-  func testDisplaySomething()
+  func testDisplaySavedLogin()
   {
     // Given
     let viewModel = Login.savedLogin.ViewModel(userID: "user", password: "123")

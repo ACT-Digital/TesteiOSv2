@@ -12,42 +12,31 @@
 
 import UIKit
 
-enum Login
-{
+enum Login {
   // MARK: Use cases
   
-  enum verify
-  {
-    struct Request
-    {
-        var user: String
-        var password: String
+    enum verify {
+        struct Request {
+            var user: String
+            var password: String
+        }
+        struct Response {
+            var allowed: Bool
+        }
+        struct ViewModel {
+            var allowed: Bool
+        }
     }
-    struct Response
-    {
-        var allowed: Bool
-    }
-    struct ViewModel
-    {
-        var allowed: Bool
-    }
-  }
-    enum savedLogin
-    {
-      struct Request
-      {
+    enum savedLogin {
+      struct Request {
       }
-      struct Response
-      {
+      struct Response {
         var userID: String?
         var password: String?
       }
-      struct ViewModel
-      {
+      struct ViewModel {
         var userID: String?
         var password: String?
       }
     }
-    
-
 }

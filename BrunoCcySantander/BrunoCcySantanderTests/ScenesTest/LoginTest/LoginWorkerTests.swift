@@ -44,14 +44,14 @@ class LoginWorkerTests: XCTestCase
     {
         var userData = UserData(userAccount: UserAccount(userID: 10, name: "name", bankAccount: "bankAccount", agency: "agency", balance: 1.0), error: ErrorUserAPI())
         
-        func fetchUser(user: String, password: String, completionHandler: @escaping (UserData?, UserStoreError?) -> Void) {
+        func fetchUser(user: String, password: String, completionHandler: @escaping (UserData?, APIServiceError?) -> Void) {
             completionHandler(userData, nil)
         }
         
         
         var statementListData = StatementListData(statementList: [StatementList(title: "title", desc: "desc", date: "date", value: 1.0)], error: ErrorAPI())
         
-        func fetchStatementList(userID: String, completionHandler: @escaping (StatementListData?, UserStoreError?) -> Void) {
+        func fetchStatementList(userID: String, completionHandler: @escaping (StatementListData?, APIServiceError?) -> Void) {
             completionHandler(statementListData, nil)
         }
     }

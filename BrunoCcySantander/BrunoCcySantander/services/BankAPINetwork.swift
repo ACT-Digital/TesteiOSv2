@@ -9,9 +9,10 @@
 import Foundation
 import Alamofire
 
+
 protocol BankAPINetworkProtocol {
-    func fetchUser(user: String, password: String, completionHandler: @escaping (UserData?, UserStoreError?) -> Void)
-    func fetchStatementList(userID: String, completionHandler: @escaping (StatementListData?, UserStoreError?) -> Void)
+    func fetchUser(user: String, password: String, completionHandler: @escaping (Result<UserData, APIServiceError>) -> Void)
+    func fetchStatementList(userID: String, completionHandler: @escaping (Result<StatementListData, APIServiceError>) -> Void)
 }
 
 class BankAPINetwork: BankAPINetworkProtocol {
@@ -30,80 +31,45 @@ class BankAPINetwork: BankAPINetworkProtocol {
     
     // MARK: - Fetch User - Optional error
     
-    func fetchUser(user: String, password: String, completionHandler: @escaping (UserData?, UserStoreError?) -> Void) {
+    func fetchUser(user: String, password: String, completionHandler: @escaping (Result<UserData, APIServiceError>) -> Void) {
 
         AF.request(NetworkPath.login.url, method: .post, parameters: ["user": user, "password": password]).responseJSON { (response) in
             guard let data = response.data else {
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
+                completionHandler(.failure(.noData))
                 return
             }
             do {
                 let userData = try JSONDecoder().decode(UserData.self, from: data)
-                completionHandler(userData, nil)
-            } catch let DecodingError.dataCorrupted(context) {
-                print(context)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.keyNotFound(key, context) {
-                print("Key '\(key)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.valueNotFound(value, context) {
-                print("Value '\(value)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.typeMismatch(type, context)  {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
+                completionHandler(.success(userData))
             } catch {
-                print("error: ", error)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
+                completionHandler(.failure(.decodeError))
             }
-        }
-        
+        }.resume()
     }
     
     // MARK: - Fetch Statement - Optional error
 
-    func fetchStatementList(userID: String, completionHandler: @escaping (StatementListData?, UserStoreError?) -> Void) {
+    func fetchStatementList(userID: String, completionHandler: @escaping (Result<StatementListData, APIServiceError>) -> Void) {
 
-        AF.request(NetworkPath.statements.url).responseJSON { (response) in
+        AF.request(NetworkPath.statements.url).responseJSON {  (response) in
             guard let data = response.data else {
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
+                completionHandler(.failure(.noData))
                 return
             }
             do {
                 let statementListData = try JSONDecoder().decode(StatementListData.self, from: data)
-                completionHandler(statementListData, nil)
-            } catch let DecodingError.dataCorrupted(context) {
-                print(context)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.keyNotFound(key, context) {
-                print("Key '\(key)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.valueNotFound(value, context) {
-                print("Value '\(value)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-            } catch let DecodingError.typeMismatch(type, context)  {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
+                completionHandler(.success(statementListData))
             } catch {
-                completionHandler(nil , .CannotFetch("Cannot fetch data"))
-                print("error: ", error)
+                completionHandler(.failure(.decodeError))
             }
-        }
-        
+        }.resume()
     }
-    
 }
 
-// MARK: - User store CRUD operation errors
-
-enum UserStoreError: Equatable, Error {
-
-  case CannotFetch(String)
-    
+public enum APIServiceError: Error {
+    case apiError
+    case invalidEndpoint
+    case invalidResponse
+    case noData
+    case decodeError
 }

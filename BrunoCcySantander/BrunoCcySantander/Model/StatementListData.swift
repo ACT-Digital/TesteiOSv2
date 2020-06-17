@@ -27,17 +27,3 @@ struct StatementList: Codable, Equatable {
     let date: String
     let value: Double
 }
-
-func ==(lhs: StatementListData, rhs: StatementListData) -> Bool
-{
-  return lhs.statementList == rhs.statementList
-    && lhs.error == rhs.error
-}
-
-func ==(lhs: StatementList, rhs: StatementList) -> Bool
-{
-  return lhs.title == rhs.title
-    && lhs.desc == rhs.desc
-    && lhs.date == rhs.date
-    && lhs.value == rhs.value
-}

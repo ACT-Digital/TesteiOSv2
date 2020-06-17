@@ -26,9 +26,15 @@ class UserProfileWorker: UserProfileWorkerProtocol
     
     let loginData = UserKeychainService().getUserPassword()
     DispatchQueue.main.async {
-        self.bankAPINetwork!.fetchStatementList(userID: loginData.userID ?? "") { (statementListData, userStoreError) in
-            let statementList: [StatementList] = statementListData!.statementList
-            completionHandler(statementList)
+        self.bankAPINetwork!.fetchStatementList(userID: loginData.userID ?? "") { (result: Result<StatementListData, APIServiceError>) in
+            
+            switch result {
+                case .success(let statementListData):
+                    let statementList: [StatementList] = statementListData.statementList
+                    completionHandler(statementList)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
         }
     }
   }
