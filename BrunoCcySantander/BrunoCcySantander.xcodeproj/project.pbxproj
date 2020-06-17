@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		00DA1095A329E3C04916F655 /* Pods_BrunoCcySantanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D1A7596823B044489146CD /* Pods_BrunoCcySantanderTests.framework */; };
 		65341DD089C06742B9BAC852 /* Pods_BrunoCcySantander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0606D5D90FCBB43E93F2DE /* Pods_BrunoCcySantander.framework */; };
+		FD30CCFA249A408C005D96D7 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF4249A408C005D96D7 /* UserProfilePresenter.swift */; };
+		FD30CCFB249A408C005D96D7 /* UserProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF5249A408C005D96D7 /* UserProfileWorker.swift */; };
+		FD30CCFC249A408C005D96D7 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF6249A408C005D96D7 /* UserProfileRouter.swift */; };
+		FD30CCFD249A408C005D96D7 /* UserProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF7249A408C005D96D7 /* UserProfileModels.swift */; };
+		FD30CCFE249A408C005D96D7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF8249A408C005D96D7 /* UserProfileViewController.swift */; };
+		FD30CCFF249A408C005D96D7 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */; };
 		FD9863B2249974ED009576ED /* ValidationLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B1249974ED009576ED /* ValidationLoginData.swift */; };
 		FD9863C424997E42009576ED /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C324997E42009576ED /* UserData.swift */; };
 		FD9863C624997EB0009576ED /* StatementListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C524997EB0009576ED /* StatementListData.swift */; };
@@ -45,6 +51,12 @@
 		5A0606D5D90FCBB43E93F2DE /* Pods_BrunoCcySantander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrunoCcySantander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB533E3AAB72A0D20A8BAFD /* Pods-BrunoCcySantanderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrunoCcySantanderTests.debug.xcconfig"; path = "Target Support Files/Pods-BrunoCcySantanderTests/Pods-BrunoCcySantanderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D1A7596823B044489146CD /* Pods_BrunoCcySantanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrunoCcySantanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD30CCF4249A408C005D96D7 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		FD30CCF5249A408C005D96D7 /* UserProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileWorker.swift; sourceTree = "<group>"; };
+		FD30CCF6249A408C005D96D7 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
+		FD30CCF7249A408C005D96D7 /* UserProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModels.swift; sourceTree = "<group>"; };
+		FD30CCF8249A408C005D96D7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		FD9863B1249974ED009576ED /* ValidationLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLoginData.swift; sourceTree = "<group>"; };
 		FD9863C324997E42009576ED /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FD9863C524997EB0009576ED /* StatementListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementListData.swift; sourceTree = "<group>"; };
@@ -106,6 +118,19 @@
 				1CBBAB18C5627E663733D03A /* Pods-BrunoCcySantanderTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD30CCF3249A3FF6005D96D7 /* userProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FD30CCF4249A408C005D96D7 /* UserProfilePresenter.swift */,
+				FD30CCF5249A408C005D96D7 /* UserProfileWorker.swift */,
+				FD30CCF6249A408C005D96D7 /* UserProfileRouter.swift */,
+				FD30CCF7249A408C005D96D7 /* UserProfileModels.swift */,
+				FD30CCF8249A408C005D96D7 /* UserProfileViewController.swift */,
+				FD30CCF9249A408C005D96D7 /* UserProfileInteractor.swift */,
+			);
+			path = userProfile;
 			sourceTree = "<group>";
 		};
 		FD9863B024997319009576ED /* services */ = {
@@ -176,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				FDF687DB249963C800EB6DB4 /* login */,
+				FD30CCF3249A3FF6005D96D7 /* userProfile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -364,12 +390,18 @@
 				FDF687D7249963C200EB6DB4 /* LoginRouter.swift in Sources */,
 				FDF687DA249963C200EB6DB4 /* LoginInteractor.swift in Sources */,
 				FDF687D6249963C200EB6DB4 /* LoginWorker.swift in Sources */,
+				FD30CCFC249A408C005D96D7 /* UserProfileRouter.swift in Sources */,
+				FD30CCFF249A408C005D96D7 /* UserProfileInteractor.swift in Sources */,
 				FDF687D5249963C200EB6DB4 /* LoginPresenter.swift in Sources */,
 				FD9863C624997EB0009576ED /* StatementListData.swift in Sources */,
 				FDF687D9249963C200EB6DB4 /* LoginViewController.swift in Sources */,
+				FD30CCFE249A408C005D96D7 /* UserProfileViewController.swift in Sources */,
 				FDF687D8249963C200EB6DB4 /* LoginModels.swift in Sources */,
 				FD9FAA8124994B2D00F1EEFC /* AppDelegate.swift in Sources */,
+				FD30CCFB249A408C005D96D7 /* UserProfileWorker.swift in Sources */,
+				FD30CCFD249A408C005D96D7 /* UserProfileModels.swift in Sources */,
 				FD9863C8249987FB009576ED /* BankAPINetwork.swift in Sources */,
+				FD30CCFA249A408C005D96D7 /* UserProfilePresenter.swift in Sources */,
 				FD9863CA2499B189009576ED /* KeychainStore.swift in Sources */,
 				FD9863C424997E42009576ED /* UserData.swift in Sources */,
 				FD9FAA8324994B2D00F1EEFC /* SceneDelegate.swift in Sources */,
