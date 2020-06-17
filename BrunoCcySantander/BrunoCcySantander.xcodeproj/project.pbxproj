@@ -10,12 +10,6 @@
 		00DA1095A329E3C04916F655 /* Pods_BrunoCcySantanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D1A7596823B044489146CD /* Pods_BrunoCcySantanderTests.framework */; };
 		65341DD089C06742B9BAC852 /* Pods_BrunoCcySantander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0606D5D90FCBB43E93F2DE /* Pods_BrunoCcySantander.framework */; };
 		FD9863B2249974ED009576ED /* ValidationLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B1249974ED009576ED /* ValidationLoginData.swift */; };
-		FD9863BA249975DD009576ED /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B4249975DD009576ED /* UserPresenter.swift */; };
-		FD9863BB249975DD009576ED /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B5249975DD009576ED /* UserWorker.swift */; };
-		FD9863BC249975DD009576ED /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B6249975DD009576ED /* UserRouter.swift */; };
-		FD9863BD249975DD009576ED /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B7249975DD009576ED /* UserModels.swift */; };
-		FD9863BE249975DD009576ED /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B8249975DD009576ED /* UserViewController.swift */; };
-		FD9863BF249975DD009576ED /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863B9249975DD009576ED /* UserInteractor.swift */; };
 		FD9863C424997E42009576ED /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C324997E42009576ED /* UserData.swift */; };
 		FD9863C624997EB0009576ED /* StatementListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C524997EB0009576ED /* StatementListData.swift */; };
 		FD9863C8249987FB009576ED /* BankAPINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9863C7249987FB009576ED /* BankAPINetwork.swift */; };
@@ -52,12 +46,6 @@
 		6AB533E3AAB72A0D20A8BAFD /* Pods-BrunoCcySantanderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrunoCcySantanderTests.debug.xcconfig"; path = "Target Support Files/Pods-BrunoCcySantanderTests/Pods-BrunoCcySantanderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D1A7596823B044489146CD /* Pods_BrunoCcySantanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrunoCcySantanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9863B1249974ED009576ED /* ValidationLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLoginData.swift; sourceTree = "<group>"; };
-		FD9863B4249975DD009576ED /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
-		FD9863B5249975DD009576ED /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
-		FD9863B6249975DD009576ED /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
-		FD9863B7249975DD009576ED /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
-		FD9863B8249975DD009576ED /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		FD9863B9249975DD009576ED /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		FD9863C324997E42009576ED /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FD9863C524997EB0009576ED /* StatementListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementListData.swift; sourceTree = "<group>"; };
 		FD9863C7249987FB009576ED /* BankAPINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAPINetwork.swift; sourceTree = "<group>"; };
@@ -130,19 +118,6 @@
 			path = services;
 			sourceTree = "<group>";
 		};
-		FD9863B3249975C3009576ED /* user */ = {
-			isa = PBXGroup;
-			children = (
-				FD9863B4249975DD009576ED /* UserPresenter.swift */,
-				FD9863B5249975DD009576ED /* UserWorker.swift */,
-				FD9863B6249975DD009576ED /* UserRouter.swift */,
-				FD9863B7249975DD009576ED /* UserModels.swift */,
-				FD9863B8249975DD009576ED /* UserViewController.swift */,
-				FD9863B9249975DD009576ED /* UserInteractor.swift */,
-			);
-			path = user;
-			sourceTree = "<group>";
-		};
 		FD9863C224997E2B009576ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				FDF687DB249963C800EB6DB4 /* login */,
-				FD9863B3249975C3009576ED /* user */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -388,21 +362,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDF687D7249963C200EB6DB4 /* LoginRouter.swift in Sources */,
-				FD9863BF249975DD009576ED /* UserInteractor.swift in Sources */,
-				FD9863BB249975DD009576ED /* UserWorker.swift in Sources */,
 				FDF687DA249963C200EB6DB4 /* LoginInteractor.swift in Sources */,
 				FDF687D6249963C200EB6DB4 /* LoginWorker.swift in Sources */,
-				FD9863BA249975DD009576ED /* UserPresenter.swift in Sources */,
 				FDF687D5249963C200EB6DB4 /* LoginPresenter.swift in Sources */,
 				FD9863C624997EB0009576ED /* StatementListData.swift in Sources */,
 				FDF687D9249963C200EB6DB4 /* LoginViewController.swift in Sources */,
-				FD9863BE249975DD009576ED /* UserViewController.swift in Sources */,
-				FD9863BC249975DD009576ED /* UserRouter.swift in Sources */,
 				FDF687D8249963C200EB6DB4 /* LoginModels.swift in Sources */,
 				FD9FAA8124994B2D00F1EEFC /* AppDelegate.swift in Sources */,
 				FD9863C8249987FB009576ED /* BankAPINetwork.swift in Sources */,
 				FD9863CA2499B189009576ED /* KeychainStore.swift in Sources */,
-				FD9863BD249975DD009576ED /* UserModels.swift in Sources */,
 				FD9863C424997E42009576ED /* UserData.swift in Sources */,
 				FD9FAA8324994B2D00F1EEFC /* SceneDelegate.swift in Sources */,
 				FD9863B2249974ED009576ED /* ValidationLoginData.swift in Sources */,

@@ -138,11 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1029" y="115"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User-->
         <scene sceneID="tNI-hK-d4C">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rxh-fj-s0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="detailScene" id="P9a-ni-il8" customClass="User" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vBN-4A-yBE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,6 +223,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="oaW-og-XSr"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxh-fj-s0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="114.50892857142857"/>
         </scene>
